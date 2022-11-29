@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 const chalk = require('chalk');
 const { DateTime } = require('luxon');
 
