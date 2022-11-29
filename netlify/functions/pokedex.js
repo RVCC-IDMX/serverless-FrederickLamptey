@@ -4,13 +4,13 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const chalk = require('chalk');
 const { DateTime } = require('luxon');
 
-exports.handler = async function (event, context) {
+exports.handler = async function (event) {
   const eventBody = JSON.parse(event.body);
   const date = DateTime.now();
   const color = eventBody.region === 'kanto' ? chalk.yellow : chalk.green;
 
-  console.log(color('$(data): Fetching data from PokeAPI'));
-  console.log(color('\teventBody.region: $(eventBody.region)'));
+  console.log(color(`${date}: Fetching data from PokeAPI`));
+  console.log(color(`\teventBody.region: ${eventBody.region}`));
 
   const POKE_API = `https://pokeapi.co/api/v2/pokedex/${eventBody.region}`;
 
